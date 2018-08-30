@@ -66,11 +66,11 @@ The quick start script will do a few things.
 
 To create a super user:
 ``` bash
-docker-compose -f docker-prod.yml run --rm --entrypoint 'python manage.py createsuperuser' api
+docker-compose -f docker-prod.yml -f docker-prod.version.yml -f docker-prod.override.yml run --rm --entrypoint 'python manage.py createsuperuser' api
 ```
 Follow the prompts given to create your user. You can do this as many times as you like.
 
-If you are an english user, it is highly recommended to add course and cuisine data. Run `docker-compose -f docker-prod.yml run --rm api sh` to open a bash shell to the API. Then:
+If you are an english user, it is highly recommended to add course and cuisine data. Run `docker-compose -f docker-prod.yml -f docker-prod.version.yml -f docker-prod.override.yml run --rm api sh` to open a bash shell to the API. Then:
 ```bash
 ./manage.py loaddata course_data.json
 ./manage.py loaddata cuisine_data.json
